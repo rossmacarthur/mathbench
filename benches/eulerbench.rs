@@ -61,6 +61,10 @@ fn bench_euler_3d(c: &mut Criterion) {
             use euclid::{UnknownUnit, Vector3D};
             bench_euler!(b, size, ty => Vector3D<f32, UnknownUnit>, zero => Vector3D::zero(), dt => UPDATE_RATE);
         });
+        bench_vectrix!(group, size, |b, size| {
+            use vectrix::Vector;
+            bench_euler!(b, size, ty => Vector<f32, 3>, zero => Vector::zero(), dt => UPDATE_RATE)
+        });
         bench_vek!(group, size, |b, size| {
             use vek::Vec3;
             bench_euler!(b, size, ty => Vec3<f32>, zero => Vec3::zero(), dt => Vec3::broadcast(UPDATE_RATE))
@@ -134,6 +138,10 @@ fn bench_euler_2d(c: &mut Criterion) {
         bench_euclid!(group, size, |b, size| {
             use euclid::{UnknownUnit, Vector2D};
             bench_euler!(b, size, ty => Vector2D<f32, UnknownUnit>, zero => Vector2D::zero(), dt => UPDATE_RATE);
+        });
+        bench_vectrix!(group, size, |b, size| {
+            use vectrix::Vector;
+            bench_euler!(b, size, ty => Vector<f32, 2>, zero => Vector::zero(), dt => UPDATE_RATE)
         });
         bench_vek!(group, size, |b, size| {
             use vek::Vec2;

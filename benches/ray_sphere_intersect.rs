@@ -189,6 +189,10 @@ fn bench_ray_sphere_intersect_scalar(c: &mut Criterion) {
             use euclid::{UnknownUnit, Vector3D};
             bench_intersection_scalar!(b, size, ty => Vector3D<f32, UnknownUnit>, zero => Vector3D::zero(), norm => normalize, mag_sq => square_length, param => by_value);
         });
+        // bench_vectrix!(group, size, |b, size| {
+        //     use vectrix::Vector;
+        //     bench_intersection_scalar!(b, size, ty => Vector<f32, 3>, zero => Vector::zero(), norm => normalized, mag_sq => magnitude_squared, param => by_value)
+        // });
         bench_vek!(group, size, |b, size| {
             use vek::Vec3;
             bench_intersection_scalar!(b, size, ty => Vec3<f32>, zero => Vec3::zero(), norm => normalized, mag_sq => magnitude_squared, param => by_value)

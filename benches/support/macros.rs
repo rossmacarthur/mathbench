@@ -197,6 +197,16 @@ macro_rules! bench_euclid {
 }
 
 #[macro_export]
+macro_rules! bench_vectrix {
+    ($group:ident, $closure:expr) => {
+        bench_lib!("vectrix", $group, $closure)
+    };
+    ($group:ident, $size:expr, $closure:expr) => {
+        bench_lib!("vectrix", $group, $size, $closure)
+    };
+}
+
+#[macro_export]
 macro_rules! bench_vek {
     ($group:ident, $closure:expr) => {
         bench_lib!("vek", $group, $closure)

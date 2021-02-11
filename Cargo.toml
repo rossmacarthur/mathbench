@@ -20,7 +20,7 @@ nalgebra_f32x4 = ["nalgebra", "simba"]
 nalgebra_f32x8 = ["nalgebra", "simba"]
 nalgebra_wide = ["nalgebra_f32x4", "nalgebra_f32x8"]
 
-scalar = ["cgmath", "nalgebra", "ultraviolet", "euclid", "vek", "pathfinder_geometry", "static-math"]
+scalar = ["cgmath", "nalgebra", "ultraviolet", "euclid", "vectrix", "vek", "pathfinder_geometry", "static-math"]
 wide = ["glam_f32x1", "ultraviolet_wide", "nalgebra_wide"]
 
 all = ["scalar", "wide"]
@@ -56,6 +56,10 @@ optional = true
 
 [dependencies.euclid]
 version = "0.22.1"
+optional = true
+
+[dependencies.vectrix]
+path = "../vectrix"
 optional = true
 
 [dependencies.vek]

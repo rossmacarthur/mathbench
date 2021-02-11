@@ -1238,6 +1238,24 @@ pub mod euclid_support {
     }
 }
 
+#[cfg(feature = "vectrix")]
+pub mod vectrix_support {
+    use super::BenchValue;
+    use rand::distributions::{Distribution, Standard};
+    use rand::Rng;
+    use vectrix::Matrix;
+
+    impl<T, const M: usize, const N: usize> BenchValue for Matrix<T, M, N>
+    where
+        T: Copy + Default,
+        Standard: Distribution<T>,
+    {
+        fn random_value<R: Rng>(rng: &mut R) -> Self {
+            Self::repeat_with(|| rng.gen())
+        }
+    }
+}
+
 #[cfg(feature = "vek")]
 pub mod vek_support {
     use super::mint_support::*;

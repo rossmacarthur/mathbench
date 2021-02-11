@@ -28,6 +28,10 @@ fn bench_vector3_ret_self(c: &mut Criterion) {
         use static_math::vector3::V3;
         bench_unop!(b, op => ret_self, ty => V3<f32>)
     });
+    bench_vectrix!(group, |b| {
+        use vectrix::Vector;
+        bench_unop!(b, op => ret_self, ty => Vector<f32, 3>)
+    });
     bench_vek!(group, |b| {
         use vek::Vec3;
         bench_unop!(b, op => ret_self, ty => Vec3<f32>)
@@ -90,6 +94,10 @@ fn bench_vector3_length(c: &mut Criterion) {
         use euclid::{UnknownUnit, Vector3D};
         bench_unop!(b, op => length, ty => Vector3D<f32, UnknownUnit>)
     });
+    // bench_vectrix!(group, |b| {
+    //     use vectrix::Vector;
+    //     bench_unop!(b, op => l2_norm, ty => Vector<f32, 3>)
+    // });
     bench_vek!(group, |b| {
         use vek::Vec3;
         bench_unop!(b, op => magnitude, ty => Vec3<f32>)
@@ -211,6 +219,10 @@ fn bench_vector3_dot(c: &mut Criterion) {
         use euclid::{UnknownUnit, Vector3D};
         bench_binop!(b, op => dot, ty1 => Vector3D<f32, UnknownUnit>, ty2 => Vector3D<f32, UnknownUnit>)
     });
+    // bench_vectrix!(group, |b| {
+    //     use vectrix::{RowVector, Vector};
+    //     bench_binop!(b, op => dot, ty1 => RowVector<f32, 3>, ty2 => Vector<f32, 3>)
+    // });
     bench_vek!(group, |b| {
         use vek::Vec3;
         bench_binop!(b, op => dot, ty1 => Vec3<f32>, ty2 => Vec3<f32>)
@@ -273,6 +285,10 @@ fn bench_vector3_cross(c: &mut Criterion) {
         use euclid::{UnknownUnit, Vector3D};
         bench_binop!(b, op => cross, ty1 => Vector3D<f32, UnknownUnit>, ty2 => Vector3D<f32, UnknownUnit>)
     });
+    // bench_vectrix!(group, |b| {
+    //     use vectrix::Vector;
+    //     bench_binop!(b, op => cross, ty1 => Vector<f32, 3>, ty2 => Vector<f32, 3>)
+    // });
     bench_vek!(group, |b| {
         use vek::Vec3;
         bench_binop!(b, op => cross, ty1 => Vec3<f32>, ty2 => Vec3<f32>)
